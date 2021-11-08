@@ -1,0 +1,41 @@
+As your customer I want to have a system to keep the light intensity in my room in a configurable range.
+
+Required devices: A Teensy 3.5, an analog light sensor and a LED lamp.
+
+Write the detailed requirements and map them to the software architecture.
+
+- - - - - - - 
+
+# Terminal
+
+[ReqId:01v01]: It shall be possible to have a <terminal> application in order to intract with the user over UART.
+[ReqId:02v01]: <terminal> shall have a menu system as the user interface.
+[ReqId:03v01]: The user of <terminal> shall be able to set <light_intersity_min> and <light_intersity_max> parameters in the range of 0 and 100.
+[ReqId:04v01]: <terminal> shall be able to display <light_intersity_min> and <light_intersity_max> parameters for the user.
+[ReqId:05v01]: <terminal> shall be able to store <light_intersity_min> and <light_intersity_max> in the EEPROM of the microcontroller.
+[ReqId:06v01]: <terminal> shall be able to load <light_intersity_min> and <light_intersity_max> from the EEPROM to the main memory at stratup.
+[ReqId:07v01]: The user of <terminal> should be able to view the current light intensity <light_intersity_level> in the range of 0 and 100.
+
+ 
+
+# Ligh Controller
+[ReqId:08v01]: It shall be possible to have a <light_controller> application.
+[ReqId:09v01]: It shall be possible to set the LED <brightness> in the range of 0 and 100.
+[ReqId:10v01]: <light_controller> shall read the current light intensity <light_intersity_level> in the range of 0 and 100 from the light sensor every 50 ms.
+[ReqId:11v01]: If <light_intersity_level> is lesser than <light_intersity_min> the application shall increase the LED brightness by one step
+                        util it reaches to the average of <light_intersity_min> and <light_intersity_max>.
+[ReqId:12v01]: If <light_intersity_level> is greater than <light_intersity_max> the application shall decrease LED brightness by one step
+                        util it reaches to the average of <light_intersity_min> and <light_intersity_max>.
+
+
+Application Layer: 01, 02, 03, 04, 05, 06, 07, 08, 10, 11, 12
+
+Abstraction Layer: 01, 03, 04, 05, 06, 07, 09, 10, 11, 12
+
+IoHwAb: 09, 10, 11, 12
+
+COM stack: 01, 03, 04, 07
+
+Memory Service: 05, 06
+
+RTOS: 10

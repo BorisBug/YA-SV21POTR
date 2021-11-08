@@ -1,0 +1,1 @@
+gcc unity_test.c -lunity -o out && ./out

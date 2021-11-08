@@ -1,0 +1,1 @@
+clear && gcc exercise-p.c -o out && ./out

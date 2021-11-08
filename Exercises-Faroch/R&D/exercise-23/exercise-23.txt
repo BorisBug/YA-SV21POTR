@@ -1,0 +1,5 @@
+As your customer I want to have a system to keep the light intensity in my room in a configurable range.
+
+Required devices: A Teensy 3.5, an analog light sensor and a LED lamp.
+
+Write the detailed requirements and map them to the software architecture.

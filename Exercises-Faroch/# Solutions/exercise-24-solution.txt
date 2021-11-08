@@ -1,0 +1,36 @@
+As a gardener I want to be able to keep the temperature inside the greenhouse in a configurable range using a temperature sensor, a heater, a fan and a window.
+
+Write the detailed requirements and map them to the software architecture.
+
+Tips: Bundle everything related to temperature in an application. And sure you need to have a terminal application. 
+
+
+# Terminal
+
+[ReqId:01v01]: It shall be possible to have a <terminal> application 
+[ReqId:02v01]: <terminal> shall have a menu system as the user interface.
+[ReqId:04v01]: The user of <terminal> shall be able to set parameters [temperature_min] and [temperature_max].
+[ReqId:05v01]: <terminal> shall store the configuration parameters in the EEPROM.
+[ReqId:06v01]: <terminal> shall restore the configuration parameters from the EEPROM at startup.
+[ReqId:07v01]: The user of <terminal> shall be able to view the configuration parameters.
+[ReqId:09v01]: The user of <terminal> should be able to view the current temperature.
+
+
+# Temperature Controller
+
+[ReqId:10v01]: It shall be possible to have a <temp_controller> application.
+[ReqId:11v01]: It shall be possible to read temperature <temperature_value> every second.
+[ReqId:12v01]: It shall be possible to set state of the window <window_state> to OPEN or CLOSED.
+[ReqId:13v01]: It shall be possible to set warmth of the heating element <heater_warmth>in the range of 0 and 100.
+[ReqId:14v01]: It shall be possible to set speed of the fan <fan_speed> in the range of 0 and 100.
+[ReqId:15v01]: If <temperature_value> is below [temperature_min], the application shall set <window_state> to CLOSED,
+	      <fan_speed> to zero and increase <heater_warmth> one step until <temperature_value> reaches to the average
+	      of [temperature_min] and [temperature_max].
+[ReqId:16v01]: If <temperature_value> is above [temperature_max], the application shall set <window_state> to OPENED, <heater_warmth> to zero and increase <fan_speed> one step until <temperature_value> reaches to the average of [temperature_min] and [temperature_max].
+
+Application Layer: 01, 02, 04, 05, 06, 07, 09, 10, 11, 15, 16
+Abstraction Layer: 02,04, 05, 06, 07, 09, 11, 12, 13, 14, 15, 16
+IoHwAb: 11, 12, 13, 14, 15, 16
+COM stack: 02, 04, 07, 09
+Memory Service: 05, 06
+RTOS: 11 

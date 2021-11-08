@@ -1,0 +1,36 @@
+[ReqId:01v01]: It shall be possible to have an application <terminal> in order to interact with the user via USB.
+
+[ReqId:02v01]: It shall be possible to get and set date and time of the RTC.
+
+[ReqId:03v01]: The user of <terminal> shall be able to set and get the current date and time of the RTC.
+
+[ReqId:04v01]: The entered/displayed date and time by/to the user shall be in the format of "YYYY-MM-DD HH:mm:ss"
+
+[ReqId:05v01]: It shall be possible to communicate to the display via SPI.
+
+[ReqId:06v01]: It shall be possible to have an application <canvas> to render graphics and text on the display.
+
+[ReqId:07v01]: <canvas> shall have a function to initialize the display.
+
+[ReqId:08v01]: It shall be possible to read the current date and time of the RTC every 500ms.
+
+[ReqId:09v01]: <canvas> shall display the current time using an analog clock on the display according to the image in the customer requirements.
+
+[ReqId:10v01]: <canvas> shall display the current time in the format of “HH:mm:ss” on the display according to the image in the customer requirements.
+
+[ReqId:11v01]: <canvas> shall display the current date on the display according to the image in the customer requirements
+
+[ReqId:12v01]: <canvas> shall update the content of the display every 500ms.
+
+ 
+
+Application Layer: 01, 03, 04, 06, 07, 09, 10, 11, 12
+
+Abstraction Layer: 02, 03, 05, 07, 08, 09, 10, 11, 12
+
+COM stack: 03, 05, 07, 09, 10, 11, 12
+
+Services: 02, 03, 08
+
+RTOS: 08, 12
+

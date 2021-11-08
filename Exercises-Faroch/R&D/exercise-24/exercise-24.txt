@@ -1,0 +1,7 @@
+As a gardener I want to be able to keep the temperature inside the greenhouse in a configurable range using a temperature sensor, a heater and a window.
+
+As a gardener I want to be able to keep the light intensity inside the greenhouse in a configurable range using a light intensity sensor and an LED lamp.
+
+Write the detailed requirements and map them to the software architecture.
+
+Tips: Bundle everything related to the temperature in an app and everything related to light in another app. And sure you need to have a terminal application.
