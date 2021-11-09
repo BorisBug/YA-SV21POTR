@@ -1,5 +1,4 @@
 clear
-gcc exercise-42.c -Wall -o out -lunity
+gcc exercise-42.c -Wall -o out
 ./out
 rm out
-rm users.bin
