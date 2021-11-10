@@ -55,9 +55,10 @@ node_t *pop(node_t *stack, int *value)
 
 int main()
 {
+    int value;
     node_t *stack = NULL;
 
-    int value;
+    srand(time(0));
 
     for(int i=0; i<STACK_DEMO; i++)
     {
