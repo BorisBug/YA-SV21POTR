@@ -20,12 +20,15 @@ Using unity test the functions.
 
 unsigned digits(int x)
 {
+    if(x<0) x=-x;
     return x<10 ? 1 : 1 + digits(x/10);
 }
 
-unsigned power(int x, int pow)
+float power(int x, int pow)
 {
-    return x * (pow>1 ? power(x, pow-1) : 1);
+    float p = pow>=0 ? pow : -pow; 
+    float res = (pow==0 ? 1 : (x * (p>1 ? power(x, p-1) : 1)));
+    return pow<0 ? 1/res : res;
 }
 
 /*
@@ -41,36 +44,24 @@ int main(void)
 
 void test_digits_pass()
 {
-    TEST_ASSERT_TRUE(digits(10)==2);
-    TEST_ASSERT_TRUE(digits(123456789)==9);
+    TEST_ASSERT_EQUAL_UINT8(2,digits(10));
+    TEST_ASSERT_EQUAL_UINT8(2,digits(-10));
+    TEST_ASSERT_EQUAL_UINT8(9,digits(123456789));
 
-    TEST_ASSERT_FALSE(digits(1)==2);
-    TEST_ASSERT_FALSE(digits(543210)==3);
+    TEST_ASSERT_NOT_EQUAL_UINT8(2,digits(1));
+    TEST_ASSERT_NOT_EQUAL_UINT8(4,digits(-123));
+    TEST_ASSERT_NOT_EQUAL_UINT8(3,digits(543210));
 }
 
 void test_power_pass()
 {
-    TEST_ASSERT_TRUE(power(2,3)==8);
-    TEST_ASSERT_TRUE(power(10,4)==10000);
-
-    TEST_ASSERT_FALSE(power(2,32)==255);
-    TEST_ASSERT_FALSE(power(99,3)==25);
+    TEST_ASSERT_EQUAL_FLOAT(8,power(2,3));
+    TEST_ASSERT_EQUAL_FLOAT(-8, power(-2,3));
+    TEST_ASSERT_EQUAL_FLOAT(10000, power(10,4));
+    TEST_ASSERT_EQUAL_FLOAT(0.00032, power(5,-5));
+    TEST_ASSERT_FLOAT_WITHIN(0.000001, 0.000059, power(7, -5));
 }
 
-void test_digits_fail()
-{
-    TEST_ASSERT_TRUE(digits(100)==4);
-    TEST_ASSERT_TRUE(digits(12345)==3);
-
-    TEST_ASSERT_FALSE(digits(1000)==3);
-    TEST_ASSERT_FALSE(digits(33)==3);
-}
-
-void test_power_fail()
-{
-    TEST_ASSERT_TRUE(power(12,2)==100);
-    TEST_ASSERT_FALSE(power(12,2)==144);
-}
 
 int main()
 {
@@ -89,7 +80,5 @@ int main()
     UNITY_BEGIN();
 	RUN_TEST(test_digits_pass);
 	RUN_TEST(test_power_pass);
-	RUN_TEST(test_digits_fail);
-	RUN_TEST(test_power_fail);
 	return UNITY_END();
 }
