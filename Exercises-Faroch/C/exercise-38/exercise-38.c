@@ -7,6 +7,7 @@
  */
 
 #include <stdio.h>
+#include <ctype.h>
 #include "unity.h"
 
 /*
@@ -36,13 +37,40 @@ unsigned string_len(char *str)
 void sort_string(char *str)
 {
     int len = string_len(str);
+
     for (int i = 0; i < len; i++)
-    for (int j = i + 1; j < len; j++)
-    if(str[i]>str[j])
     {
-        char c = str[i];
-        str[i] = str[j];
-        str[j] = c;
+        for (int j = i + 1; j < len; j++)
+        {
+            char a = toupper(str[i]);
+            char b = toupper(str[i]);
+
+            if((a>b) || (a==b && str[i]>str[j]))
+            {
+                char c = str[i];
+                str[i] = str[j];
+                str[j] = c;
+            }
+        }
+    }
+}
+
+void sort_string_2(int len, char str[len])
+{
+    for (int i = 0; i < len; i++)
+    {
+        for (int j = i + 1; j < len; j++)
+        {
+            char a = toupper(str[i]);
+            char b = toupper(str[i]);
+
+            if((a>b) || (a==b && str[i]>str[j]))
+            {
+                char c = str[i];
+                str[i] = str[j];
+                str[j] = c;
+            }
+        }
     }
 }
 
@@ -60,6 +88,7 @@ int main()
     get_string(str, 20);
     printf("Echo: %s\n", str);
     sort_string(str);
+    //sort_string_2(string_len(str), str);
     printf("Sort: %s\n", str);
 
     UNITY_BEGIN();
