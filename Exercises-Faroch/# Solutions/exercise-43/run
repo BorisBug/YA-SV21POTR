@@ -1,0 +1,7 @@
+#!sh
+
+clear && mkdir -p build && rm -rf build/*;
+
+gcc -Wall -Wpedantic -Wextra ./test/list.c ./list/list.c -I./list -lunity -o ./build/test;
+
+./build/test;
