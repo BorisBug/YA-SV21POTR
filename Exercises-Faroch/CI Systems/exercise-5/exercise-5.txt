@@ -1,0 +1,12 @@
+Beskrivning
+Using TDD, develop a function to validate date and time according to the requirements below:
+
+bool validate_datetime(const char *dtstr);
+
+The function shall check the format of the passed date to the function.
+The function shall check the format of the passed time to the function.
+The function shall check if the passed date to the function is valid or not.
+The function shall check if the passed time to the function is valid or not.
+The date time format shall be YYYY-MM-DD hh:mm:ss.
+ 
+Compile and link unity to the test program.

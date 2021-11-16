@@ -1,0 +1,2 @@
+Beskrivning
+Rewrite the makefile of fizzbuzz using variables, pattern rules and built-in functions

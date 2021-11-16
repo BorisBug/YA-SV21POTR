@@ -1,0 +1,10 @@
+Beskrivning
+
+Make a python program to build a C project with any structure (assume that in every module the header file and the source file have the same name).
+
+To find programs, search in the source files. If a source file has implemented the main function, it is a program.
+
+To find dependencies of a program you can read and extract the dependencies from the .d file of the program.
+
+based on the content of the .d file, you can find the object files needed to link in order to build the program.
+

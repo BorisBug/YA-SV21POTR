@@ -1,0 +1,6 @@
+Beskrivning
+1) Write a Python program to search for decimal numbers which have min. 1 and max. 3 digits, in a given string.
+2) Write a Python program to validate an IPv4 address. IPv4 format is xxx.xxx.xxx.xxx and xxx shall be between 0 and 255.
+3) Write a Python program to replace whitespaces in a string with an underscore and vice versa.
+4) Write a Python program to validate and convert a date of yyyy-mm-dd format to dd/mm/yyyy format.
+5) Write a Python program to find all words starting with 'a' or 'e' in a given string.

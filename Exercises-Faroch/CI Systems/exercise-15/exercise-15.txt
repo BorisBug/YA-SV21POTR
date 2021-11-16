@@ -1,0 +1,4 @@
+Beskrivning
+
+Do exercise 8, but load the message from data.json file.
+import and use json module.

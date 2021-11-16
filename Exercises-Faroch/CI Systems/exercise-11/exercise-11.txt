@@ -1,0 +1,7 @@
+Beskrivning
+Download fizzbuzz.zip in Examples and extract it.
+Replace the shell script (run) with a Makefile to
+- Build and run the test.
+- Build the program.
+- Clean the project.
+To build and run test add a target (check) which depends on the test executable and runs the tests.
