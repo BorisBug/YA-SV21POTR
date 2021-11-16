@@ -1,11 +1,14 @@
 ## Exclude special folders
-Assignments
 Other files
+
+## Special folders
+build
+out
 
 ## Exclude
 *.json
 *.vscode
-out
+*.dSYM
 
 ###
 !*.c
@@ -13,3 +16,5 @@ out
 !*.sh
 !*.pdf
 !*.txt
+
+

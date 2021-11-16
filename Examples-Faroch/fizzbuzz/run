@@ -1,0 +1,14 @@
+#!sh
+
+clear && rm -rf build
+mkdir -p build && cd build
+
+gcc -c ../lib/unity/unity.c
+gcc -c ../lib/fizzbuzz/fizzbuzz.c
+gcc -c ../test/test.c -I../lib/unity -I../lib/fizzbuzz
+gcc unity.o fizzbuzz.o test.o -o test
+./test
+
+gcc -c ../lib/fizzbuzz/fizzbuzz.c # fizzbuzz.o
+gcc -c ../src/main.c -I../lib/fizzbuzz # main.o
+gcc fizzbuzz.o main.o -o main

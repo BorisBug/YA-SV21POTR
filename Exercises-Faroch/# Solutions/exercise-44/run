@@ -1,0 +1,10 @@
+#!sh
+
+clear  && rm -rf build && mkdir build;
+
+gcc -c -Wall -Wextra -Wpedantic ./lib/menu/menu.c -o ./build/menu.o
+gcc -c -Wall -Wextra -Wpedantic ./lib/tree/tree.c -o ./build/tree.o
+gcc -c -Wall -Wextra -Wpedantic main.c -I./lib/menu -I./lib/tree -o ./build/main.o
+gcc ./build/menu.o ./build/tree.o ./build/main.o -o ./build/main
+
+./build/main
