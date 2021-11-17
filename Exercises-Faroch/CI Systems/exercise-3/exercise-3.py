@@ -1,2 +1,4 @@
-Beskrivning
-Make a program to read a string from the input and print the index of uppercase letters in the string to the output.
+inp = str(input("Enter a string: "))
+for i in range(0,len(inp),1):
+    if inp[i].isupper():
+        print(i)
