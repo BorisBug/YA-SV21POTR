@@ -38,7 +38,7 @@ fmt = f"{{:<{width['name']}}}{lim}{{:<{width['type']}}}{lim}{{:^{width['length']
 print(fmt.format(title[0], title[1], title[2], title[3]))
 
 # print division
-print("-"*(3*len({lim}) + width['name']+width['type']+width['length']+width['comment']))
+print("-"*(3*len(lim) + width['name']+width['type']+width['length']+width['comment']))
 
 # print rows
 for row in signals:
