@@ -1,3 +1,5 @@
+# Python
+
 # 1. Replace "type here" with "Hello World!"
 #print("type here")
 print("hello world!")
@@ -83,7 +85,7 @@ answer = type(gift_list)
 print(answer)
 
 # 19. Create an empty dictionary and assign its type to answer
-grocery_items = {} #{"Maria": 23, "Erik": 31, "Eva": 40}
+grocery_items = {}
 answer = type(grocery_items)
 print(answer)
 
