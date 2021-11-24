@@ -1,0 +1,5 @@
+1. create repo on github
+2. clone repo on local
+3. copy files to local (from Faroch)
+4. git add, commit, push
+5. replace yml file with your own on readme. 
