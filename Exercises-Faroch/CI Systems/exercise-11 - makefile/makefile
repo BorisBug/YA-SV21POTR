@@ -2,22 +2,22 @@
 
 all: clean mkbuild main.exe
 
-main.exe: main.o fizzbuzz.o
+main.exe: build/main.o build/fizzbuzz.o
 	gcc build/main.o build/fizzbuzz.o -o build/main.exe
 
-test.exe: unity.o fizzbuzz.o test.o
+test.exe: build/unity.o build/fizzbuzz.o build/test.o
 	gcc build/unity.o build/fizzbuzz.o build/test.o -o build/test.exe
 
-main.o: fizzbuzz.o src/main.c lib/fizzbuzz/fizzbuzz.h
+build/main.o: build/fizzbuzz.o src/main.c lib/fizzbuzz/fizzbuzz.h
 	gcc -c src/main.c -Ilib/fizzbuzz -o build/main.o
 
-unity.o: lib/unity/unity.c lib/unity/unity.h
+build/unity.o: lib/unity/unity.c lib/unity/unity.h
 	gcc -c lib/unity/unity.c -o build/unity.o
 
-fizzbuzz.o: lib/fizzbuzz/fizzbuzz.c lib/fizzbuzz/fizzbuzz.h
+build/fizzbuzz.o: lib/fizzbuzz/fizzbuzz.c lib/fizzbuzz/fizzbuzz.h
 	gcc -c lib/fizzbuzz/fizzbuzz.c -o build/fizzbuzz.o
 
-test.o: fizzbuzz.o test/test.c lib/unity/unity.h lib/fizzbuzz/fizzbuzz.h 
+build/test.o: build/fizzbuzz.o test/test.c lib/unity/unity.h lib/fizzbuzz/fizzbuzz.h 
 	gcc -c test/test.c -Ilib/unity -Ilib/fizzbuzz -o build/test.o
 
 ##################
