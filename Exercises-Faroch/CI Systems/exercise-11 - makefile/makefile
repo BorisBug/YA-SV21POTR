@@ -8,17 +8,19 @@ main.exe: main.o fizzbuzz.o
 test.exe: unity.o fizzbuzz.o test.o
 	gcc build/unity.o build/fizzbuzz.o build/test.o -o build/test.exe
 
-main.o: fizzbuzz.o
+main.o: fizzbuzz.o src/main.c lib/fizzbuzz/fizzbuzz.h
 	gcc -c src/main.c -Ilib/fizzbuzz -o build/main.o
 
-unity.o:
+unity.o: lib/unity/unity.c lib/unity/unity.h
 	gcc -c lib/unity/unity.c -o build/unity.o
 
-fizzbuzz.o:
+fizzbuzz.o: lib/fizzbuzz/fizzbuzz.c lib/fizzbuzz/fizzbuzz.h
 	gcc -c lib/fizzbuzz/fizzbuzz.c -o build/fizzbuzz.o
 
-test.o: fizzbuzz.o
+test.o: fizzbuzz.o test/test.c lib/unity/unity.h lib/fizzbuzz/fizzbuzz.h 
 	gcc -c test/test.c -Ilib/unity -Ilib/fizzbuzz -o build/test.o
+
+##################
 
 .PHONY: all clean mkbuild check
 
@@ -28,6 +30,6 @@ clean:
 mkbuild:
 	mkdir -p build
 
-check: test.exe
+check: clean mkbuild test.exe
 	./build/test.exe
 
