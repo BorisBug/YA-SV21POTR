@@ -1,0 +1,19 @@
+name: Roman to Decimal
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install
+      run: sudo apt-get install build-essential
+    - name: Build Test
+      run: |
+        make
+        make check

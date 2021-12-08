@@ -29,7 +29,7 @@ CLONE a repo on a local folder
 /////////////////
 
 …create a new repository on the command line
-echo "# YrkesAkademin-FizzBuzzWhiz" >> README.md
+echo "# Repo" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
@@ -43,6 +43,8 @@ git push -u origin master
 git remote add origin https://github.com/BorisBug/YrkesAkademin-FizzBuzzWhiz.git
 git branch -M master
 git push -u origin master
+
+git remote add origin https://github.com/BorisBug/YA-GH-Actions.git
 
 
 

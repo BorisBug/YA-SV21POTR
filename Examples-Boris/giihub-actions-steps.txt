@@ -1,0 +1,64 @@
+Boris Snäll ///
+0730-882228
+
+
+1• Create private repo on GitHub and include the readme file (to have an initial commit)
+
+2• Clone repository locally https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
+- move to a directory where you want your repository
+- git clone https://....your-repo
+
+3• Create develop branch and switch
+- git branch			--> it should be master or main only
+- git branch develop	--> create branch develop (under main/master)
+- git switch develop	--> switch to develop
+- git branch			--> it should be develop and master/main
+
+4• Copy or create the project structure.
+   Folders: Lib, Src, Test.. and Files: .gitignore, Makefile, etc.
+   In this example we use Faroch's code from FizzBuzzWhiz (Week 48 > examples > artifacts.zip).
+   Note that we are now standing on develop branch.
+
+5• After copying or creating, we try to compile and see if everything is actually working. 
+   Run make using the given Makefile and its targets (ex: make clean, make check, etc..).
+   This makefile you can use on the assignment 80% as it is.
+- make
+- make clean
+- make check
+- make run NUM=154
+
+5• Verify that you have the YAML file(s) on .github/workflows, 
+  and be sure that the compilation commands on the section "build" are
+  reproduced exactly as you do locally on your terminal.
+  These files you can use on the assignment 95% as they already are.
+
+6• Verify that in the YAML file the names of the branches are similar as yours.
+   That means.. 'main' should be main, or 'master' should be master.
+   You can check this on the bottom left corner of VS.
+
+7• Add the new files and folders into your local repository.
+   Good to check before and after to ensure that git is doing exactly what you want.
+- git branch
+- git status
+- git add .
+- git status
+
+8• Commit everything
+- git commit -m "added files and folders"
+- git status
+
+9• Push to GitHub.
+  If you just push you will get an error because in GitHub there is no develop branch,
+  and because this branch is ahead of origin.
+- git push      	--> error
+- git push --set-upstream origin develop
+
+10• In this example everything is ready, then we can continue and create a version. That means merge develop with master/main.
+- git switch master
+- git pull		--> in a real scenario here you should check that there are no conflicts
+- git merge develop
+- git push
+
+
+
+

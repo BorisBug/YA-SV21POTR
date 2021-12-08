@@ -1,0 +1,89 @@
+name: Actions Multi
+
+on:
+  pull_request:
+    branches:
+      - develop
+  push:
+    branches:
+      - develop
+      - master
+  release:
+
+jobs:
+  trying_actions1:
+    name: Actions 1 (always)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Action 1
+        run: echo "We are in Action 1"
+      - name: Action 1-1 (push on develop)
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/develop' }}
+        run: echo "This is a push on develop"
+      - name: Action 1-2 (push on master)
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+        run: echo "This is a push on master"
+
+  trying_actions2:
+    name: Actions 2 (always)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Action 2
+        run: echo "We are in Action 1"
+      - name: Action 2-1 (pull_request)
+        if: ${{ github.event_name == 'pull_request' }}
+        run: echo "This is a pull request"
+
+  trying_actions3:
+    name: Actions 3 (only push)
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - name: Action 3
+        run: echo "We are in Action 3"
+      - name: Action 3-1 (push on develop)
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/develop' }}
+        run: echo "This is a push on develop"
+      - name: Action 3-2 (push on master)
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+        run: echo "This is a push on master"
+
+  trying_actions4:
+    name: Actions 4 (only pull_request)
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - name: Action 4
+        run: echo "We are in Action 4"
+      - name: Action 4-1
+        run: echo "This is a pull_request"
+
+  trying_actions5:
+    name: Actions 5 (only push on master)
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+    steps:
+      - name: Action 5
+        run: echo "We are in Action 5"
+      - name: Action 5-1 (push on master)
+        run: echo "This is a push on master"
+      - name: Action 5-2 (echo release)
+        run: echo "Creating a release"
+      - name: Create Release
+        uses: marvinpinto/action-automatic-releases@v1.1.1
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          automatic_release_tag: latest
+          prerelease: true
+          title: "Release ${{ github.event.release.tag_name }}"
+          files: README.md
+
+  trying_actions6:
+    name: Actions 6 (only release)
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'release' }}
+    steps:
+      - name: Action 6
+        run: echo "We are in Action 6"
+      - name: Action 6-1 (release)
+        run: echo "This is a release"
