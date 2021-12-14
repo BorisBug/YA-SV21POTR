@@ -5,6 +5,9 @@ Other files
 build
 out
 
+## python
+__pycache__
+
 ## Exclude
 *.json
 *.vscode
