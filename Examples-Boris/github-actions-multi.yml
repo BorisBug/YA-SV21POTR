@@ -8,8 +8,7 @@ on:
     branches:
       - develop
       - master
-  release:
-
+      
 jobs:
   trying_actions1:
     name: Actions 1 (always)
