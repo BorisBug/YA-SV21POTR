@@ -15,8 +15,8 @@
 
 #define DT_LENGTH 19
 
-#define SSID "MaxPlus"
-#define PASSWORD "SV21TRC3556"
+#define SSID "Snäll Net"
+#define PASSWORD "felicidad"
 
 #define TIME_OFFSET (1 * 60 * 60)      // Offset from GMT in seconds. For Sweden it is 1 hour
 #define TIME_DAYLIGHT (1 * 60 * 60)    // Daylight saving time in Sweden (1hour). It starts from march 28 and ends in october 31
@@ -44,6 +44,7 @@ void setup()
     delay(2000);
 
     WiFi.begin(SSID, PASSWORD);
+    Serial.print("connecting");
 
     while (WL_CONNECTED != WiFi.status())
     {
@@ -51,6 +52,7 @@ void setup()
         delay(500);
     }
 
+    Serial.println("");
     sync_time();
 
     WiFi.disconnect();

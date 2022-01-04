@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <IntervalTimer.h>
 
-IntervalTimer timer;
-uint8_t led_state = LOW;
+static IntervalTimer timer;
+static uint8_t led_state = LOW;
 
 void blink(void)
 {
@@ -13,9 +13,18 @@ void blink(void)
 void setup()
 {
   pinMode(LED_BUILTIN, OUTPUT);
-  timer.begin(blink, 500000); // blink is called every second
+  timer.begin(blink, 500000); // blink is called every half second
 }
 
 void loop()
 {
+  static int x=0;
+  x=!x;
+  
+  if(x)
+    Serial.print(".");
+  else
+    Serial.print("*");
+
+  delay(500);
 }
