@@ -1,1 +1,0 @@
-# Exercise xx - Embedded systems

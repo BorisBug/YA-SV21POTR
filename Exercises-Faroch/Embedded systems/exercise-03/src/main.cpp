@@ -4,7 +4,7 @@
 #define BLINKING_LED_PIN 30
 
 #define FADE_TIME 2000 // 2 seconds
-#define FADE_STEPS 20 // 20 steps in FADE_TIME
+#define FADE_STEPS 25 // 25 steps in FADE_TIME
 
 float led_state = 0;
 float fade_inc = 255.0/FADE_STEPS;
@@ -27,7 +27,7 @@ void loop()
 {
     if(flip.check())
     {
-        Serial.println("\nflip!");
+        Serial.print("\nflip! ");
         step.reset();
         // change fade direction
         fade_inc = -fade_inc;
