@@ -1,0 +1,3 @@
+Beskrivning
+
+Make a program using FlexCAN driver uploaded to CAN folder to set the CAN controller of Teensy in loop back mode (Can0.loopBack = true;) and send 3 messages wirh some random data and IDs of 0x100, 0x101 and 0x111 and receive the messages with IDs 0x101 and 0x111 using filtering. The transmitting interval shall be 50 ms and receiving interval shall be 500 ms. The speed of the communication shall be 250000. For timing use an interval timer.
