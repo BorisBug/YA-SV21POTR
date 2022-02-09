@@ -21,6 +21,30 @@ else
 	INCLUDES := $(LIB_DIR)/$(LED_DRIVER) $(LIB_DIR)/$(MODULE) $(TEST_DIR)/$(THE_TEST)
 	INCLUDES := $(addprefix -I./, $(INCLUDES))
 
+	lib/bsp/*.cpp
+
+	lib/terminal/terminalcpp
+	lib/led_driver/led_driver.cpp
+	test/integration/bsp_dio.cpp
+	test/integration/bsp_serial.cpp
+	test/integration/test.cpp
+
+	->
+
+	terminalcpp
+	led_driver.cpp
+	bsp_dio.cpp
+	bsp_serial.cpp
+	test.cpp
+
+	->
+
+	build/terminal.o
+	build/led_driver.o
+	build/bsp_dio.o
+	build/bsp_serial.o
+	build/test.o
+
 	OBJECTS := $(notdir $(wildcard $(LIB_DIR)/$(MODULE)/*.cpp) $(wildcard $(LIB_DIR)/$(LED_DRIVER)/*.cpp) $(wildcard $(TEST_DIR)/$(THE_TEST)/*.cpp))
 	OBJECTS := $(addprefix $(BUILD_DIR)/, $(OBJECTS:.cpp=.o))
 endif
@@ -34,8 +58,15 @@ all: clean .mkbuild
 	@echo "*************************************************************"
 	@echo ""
 
+
+	build/terminal.o
+	build/led_driver.o --
+	build/bsp_dio.o
+	build/bsp_serial.o
+	build/test.o
+
 $(BUILD_DIR)/$(TEST_EXE): $(OBJECTS)
-	@$(CC) $^ -lunity -lgcov -o $@
+	@$(CC) $^ -lunity --coverage -o $@
 
 $(BUILD_DIR)/%.o: $(LIB_DIR)/$(LED_DRIVER)/%.cpp
 	@$(CC) -MMD $(CFLAGS) --coverage -o $@ $(INCLUDES) -c $<
@@ -52,8 +83,9 @@ check: clean .mkbuild $(BUILD_DIR)/$(TEST_EXE)
 	@echo "********** Run The Test **************"
 	@echo "**************************************"
 	@echo ""
-	@./$(BUILD_DIR)/$(TEST_EXE); \
-	gcovr -r . --html-details -o $(BUILD_DIR)/index.html
+	@./$(BUILD_DIR)/$(TEST_EXE)
+#	@./$(BUILD_DIR)/$(TEST_EXE); \
+#	gcovr -r . --html-details -o $(BUILD_DIR)/index.html
 
 # Include the the automatically generated dependencies
 -include $(OBJECTS:.o=.d)

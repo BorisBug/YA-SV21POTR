@@ -131,14 +131,12 @@ void setup()
     delay(2000);
 #endif
     UNITY_BEGIN();
-
     RUN_TEST(test_terminal_without_initialization);
     RUN_TEST(test_terminal_init);
     RUN_TEST(test_terminal_waiting_on_user);
     RUN_TEST(test_terminal_led_on);
     RUN_TEST(test_terminal_led_off);
     RUN_TEST(test_terminal_invalid_input);
-
 #ifdef DEVENV
     return UNITY_END();
 #else

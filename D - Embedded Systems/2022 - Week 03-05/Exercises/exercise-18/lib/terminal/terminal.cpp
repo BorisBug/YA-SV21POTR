@@ -16,9 +16,11 @@ static bool show_message = true;
 
 void terminal_init(void)
 {
+    // led
     led_driver_init();
-    bsp_serial_begin();
     led_driver_set_state(LED_DRIVER_LOW);
+    // bsp
+    bsp_serial_begin();
     initialized = true;
 }
 
