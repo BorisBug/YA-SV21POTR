@@ -1,13 +1,3 @@
-/**
- * @file main.cpp
- * @author Faroch Mehri (faroch.mehri@ya.se)
- * @brief This example shows boucing of a pushbutton connected to Teensy. For the connection look at circuit.png
- * @version 0.1
- * @date 2022-01-04
- *
- * @copyright Copyright (c) 2022
- *
- */
 #include <Metro.h>
 #include <Arduino.h>
 #include "debouncer.h"
