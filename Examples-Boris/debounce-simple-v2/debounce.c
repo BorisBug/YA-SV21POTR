@@ -29,11 +29,8 @@ uint8_t bsp_digital_read(uint8_t pin)
 
 // input: pin number
 // output: H F L R
-uint8_t debounce(uint8_t pin)
+uint8_t debounce(uint8_t val)
 {
-    // from the pin we get the digital values
-    uint8_t val = bsp_digital_read(pin);
-
     // use 'val' as the input for the digital_read of the pin connected
     // to the button or to the values returned from the fake_digital_read 
     int result = STATE_HIGH;

@@ -16,7 +16,13 @@ void led_driver_init(uint8_t pin, led_driver_mcal_t *inteface)
 
         pin_num = pin;
         initialized = true;
+
+        //pinMode(pin, OUTPUT);
+        //bsp_pin_mode(pin, OUTPUT);
         mcal.pin_mode(pin, OUTPUT);
+
+        //digitalWrite(pin, LED_DRIVER_LOW);
+        //bsp_digital_write(pin, LED_DRIVER_LOW);
         mcal.digital_write(pin, LED_DRIVER_LOW);
     }
 }

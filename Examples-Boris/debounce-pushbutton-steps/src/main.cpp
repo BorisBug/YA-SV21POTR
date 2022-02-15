@@ -112,17 +112,14 @@ void loop_debounce_hflr()
     {
         print_prev = debounce_state;
 
-        const char *txt=NULL;
         switch(print_prev)
         {
             default:
-            case DEBOUNCE_HIGH:    txt = "HIGH"; break;
-            case DEBOUNCE_FALLING: txt = "FALLING"; print_count++; break;
-            case DEBOUNCE_LOW:     txt = "LOW"; break;
-            case DEBOUNCE_RISING:  txt = "RISING"; break;
+            case DEBOUNCE_HIGH:     Serial.printf(". HIGH -> %d\n", print_count++); break;
+            case DEBOUNCE_FALLING:  Serial.printf(". FALLING ."); break;
+            case DEBOUNCE_LOW:      Serial.printf(". LOW -> %d\n", print_count++); break;
+            case DEBOUNCE_RISING:   Serial.printf(". RISING ."); break;
         }
-
-        Serial.printf(". %s -> %d\n", txt, print_count);
     }
 }
 
