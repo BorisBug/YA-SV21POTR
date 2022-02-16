@@ -1,0 +1,9 @@
+Beskrivning
+Make a program for ESP32 to get the current date and time from an NTP server and initialize the RTC of ESP32 and send date and time to Teensy via I2C.
+
+Then make a program for Teensy 3.5 to receive date and time from ESP32 via I2C and Initialize the RTC of Teensy and print the current time to the terminal every second;
+
+ 
+
+Date and Time format shall be YYYY-MM-DD hh:mm:ss
+
