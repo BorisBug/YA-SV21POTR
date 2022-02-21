@@ -13,8 +13,8 @@
 #include <WiFi.h>
 #include <Arduino.h>
 
-#define SSID "MaxPlus"
-#define PASSWORD "SV21TRC3556"
+#define SSID "Snäll Net"
+#define PASSWORD "felicidad"
 
 #define TIME_OFFSET (1 * 60 * 60)      // Offset from GMT in seconds. For Sweden it is 1 hour
 #define TIME_DAYLIGHT (0 * 60 * 60)    // Daylight saving time in Sweden (1hour). It starts from march 28 and ends in october 31

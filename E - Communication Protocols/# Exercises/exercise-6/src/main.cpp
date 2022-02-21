@@ -2,8 +2,8 @@
 #include <WebServer.h>
 
 #define PORT (80U)
-#define SSID "MaxPlus"         // Enter your SSID
-#define PASSWORD "SV21TRC3556" // Enter your password
+#define SSID "Snäll Net"         // Enter your SSID
+#define PASSWORD "felicidad" // Enter your password
 
 static void handle_index(void);
 static void handle_ledon(void);

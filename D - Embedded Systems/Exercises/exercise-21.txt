@@ -1,0 +1,7 @@
+Beskrivning
+Using RSA-1024 make a program for Teensy.
+
+Read a string of max. 64 characters from a terminal.
+Generate two RSA-1024 pairs of keys name client and server.
+Encrypt the string using the client private key and then encrypt the result using the server public key and print the ciphers to the terminal.
+Decrypt the ciphers using the server private key and then decrypt the result using the client public key and print it to the terminal.

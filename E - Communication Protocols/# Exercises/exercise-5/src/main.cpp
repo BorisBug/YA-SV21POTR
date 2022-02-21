@@ -2,8 +2,8 @@
 #include <HTTPClient.h>
 
 #define MAX_LEN (32U)
-#define SSID "MaxPlus"                               // Enter your SSID
-#define PASSWORD "SV21TRC3556"                       // Enter your password
+#define SSID "Snäll Net"                               // Enter your SSID
+#define PASSWORD "Felicidad"                       // Enter your password
 #define URL_BASE "https://api.nationalize.io/?name=" // Predict nationality based on a name
 
 static void serial_clear(void)
@@ -28,7 +28,7 @@ void setup()
     {
         while (1)
         {
-            Serial.printf("WiFi Failed!\n");
+            Serial.printf("WiFi Failed! %s\n", SSID);
             delay(1000);
         }
     }

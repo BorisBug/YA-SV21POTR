@@ -1,0 +1,7 @@
+Beskrivning
+Using AES256 make a program for Teensy.
+
+Read a string of max. 20 characters from a terminal.
+Generate a random AES256 key.
+Encrypt the string and print the ciphers to the terminal.
+Decrypt the ciphers and print them to the terminal
