@@ -1,0 +1,5 @@
+Beskrivning
+Using SHA256 make a program for Teensy.
+
+Read a string of max. 64 characters from a terminal
+Calculate hash of the string using SHA256 and print it to the terminal.
