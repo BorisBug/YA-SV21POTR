@@ -66,10 +66,10 @@ void operate(const char *v1, const char *v2, const char *operator)
 
 int main(int argc, char *argv[])
 {
-    printf("\n\nCount: %d\n", argc);
+//  printf("\n\nCount: %d\n", argc);
     
-    for(int i=0; i<argc; i++)
-        printf("val[%d]: %s\n", i, argv[i]);
+//  for(int i=0; i<argc; i++)
+//      printf("val[%d]: %s\n", i, argv[i]);
 
     if(argc>=4)
         operate(argv[1], argv[3], argv[2]);

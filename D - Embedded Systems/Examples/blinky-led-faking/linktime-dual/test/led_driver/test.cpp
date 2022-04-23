@@ -16,9 +16,6 @@ void test_uninitialized_led_driver(void)
 void test_initialized_led_driver(void)
 {
     led_driver_init(pin);
-
-    TEST_ASSERT_EQUAL_UINT8(pin, bsp_get_pin_num());
-
     TEST_ASSERT_EQUAL_UINT8(pin, bsp_get_pin_num());
     TEST_ASSERT_EQUAL_UINT8(OUTPUT, bsp_get_pin_mode());
     TEST_ASSERT_EQUAL_UINT8(LED_DRIVER_LOW, bsp_get_pin_state());
@@ -26,18 +23,16 @@ void test_initialized_led_driver(void)
 
 void test_set_state_valid_arg(void)
 {
-    uint8_t state = LED_DRIVER_HIGH;
-    TEST_ASSERT_EQUAL_INT(LED_DRIVER_OK, led_driver_set_state(state));
-    TEST_ASSERT_EQUAL_UINT8(state, bsp_get_pin_state());
+    TEST_ASSERT_EQUAL_INT(LED_DRIVER_OK, led_driver_set_state(LED_DRIVER_HIGH));
+    TEST_ASSERT_EQUAL_UINT8(LED_DRIVER_HIGH, bsp_get_pin_state());
     TEST_ASSERT_EQUAL_UINT8(pin, bsp_get_pin_num());
 
 #ifndef DEVENV
     delay(2000);
 #endif
 
-    state = LED_DRIVER_LOW;
-    TEST_ASSERT_EQUAL_INT(LED_DRIVER_OK, led_driver_set_state(state));
-    TEST_ASSERT_EQUAL_UINT8(state, bsp_get_pin_state());
+    TEST_ASSERT_EQUAL_INT(LED_DRIVER_OK, led_driver_set_state(LED_DRIVER_LOW));
+    TEST_ASSERT_EQUAL_UINT8(LED_DRIVER_LOW, bsp_get_pin_state());
     TEST_ASSERT_EQUAL_UINT8(pin, bsp_get_pin_num());
 }
 

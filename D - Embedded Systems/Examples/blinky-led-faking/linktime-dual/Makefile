@@ -23,7 +23,7 @@ all: .mkbuild $(BUILD_DIR)/$(TEST_EXE)
 	@echo ""
 
 $(BUILD_DIR)/$(TEST_EXE): $(OBJECTS)
-	$(CC) $^ -lunity -lgcov -o $@
+	$(CC) $^ -lunity -coverage -o $@
 
 $(BUILD_DIR)/%.o: $(LIB_DIR)/$(MODULE)/%.cpp
 	$(CC) -MMD $(CFLAGS) --coverage -o $@ $(INCLUDES) -c $<

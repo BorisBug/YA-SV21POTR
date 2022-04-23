@@ -127,6 +127,6 @@ void loop_debounce_hflr()
 void loop()
 {
     //loop_proof_of_bouncing();
-    //loop_debounce_hl();
-    loop_debounce_hflr();
+    loop_debounce_hl();
+    //loop_debounce_hflr();
 }
